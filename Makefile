@@ -15,6 +15,9 @@ clean:
 	make -C libsrtp distclean
 	make -C janus-gateway distclean
 
+distclean:
+	rm -rf ${APPDIR}/*
+
 ${APPDIR}:
 	sudo mkdir -p ${APPDIR}
 	sudo chown ${USER} ${APPDIR}
