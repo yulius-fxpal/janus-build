@@ -7,7 +7,7 @@ deps:
 	sudo apt install libmicrohttpd-dev libjansson-dev libnice-dev \
 		libssl-dev libsrtp-dev libsofia-sip-ua-dev libglib2.0-dev \
 		libopus-dev libogg-dev libcurl4-openssl-dev liblua5.3-dev \
-		pkg-config gengetopt libtool automake
+		pkg-config gengetopt libtool automake cmake
 
 clean:
 	rm -rf libwebsockets/build
