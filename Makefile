@@ -4,7 +4,7 @@ export PKG_CONFIG_PATH=${APPDIR}/lib/pkgconfig
 default: ${APPDIR} libsrtp libwebsockets usrsctp janus
 
 deps:
-	apt install libmicrohttpd-dev libjansson-dev libnice-dev \
+	sudo apt install libmicrohttpd-dev libjansson-dev libnice-dev \
 		libssl-dev libsrtp-dev libsofia-sip-ua-dev libglib2.0-dev \
 		libopus-dev libogg-dev libcurl4-openssl-dev liblua5.3-dev \
 		pkg-config gengetopt libtool automake
