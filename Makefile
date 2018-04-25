@@ -10,9 +10,10 @@ deps:
 		pkg-config gengetopt libtool automake
 
 clean:
-	make -C libwebsockets/build clean
-	make -C usrsctp clean
-	make -C libsrtp clean
+	rm -rf libwebsockets/build
+	make -C usrsctp distclean
+	make -C libsrtp distclean
+	make -C janus-gateway distclean
 
 ${APPDIR}:
 	sudo mkdir -p ${APPDIR}
@@ -37,8 +38,8 @@ ${APPDIR}/include/usrsctp.h:
 	make -C usrsctp
 	make -C usrsctp install
 
-janus: ${APPDIR}/janus
-${APPDIR}/janus: janus-gateway/Makefile ${APPDIR}/etc/janus/janus.cfg
+janus: ${APPDIR}/bin/janus ${APPDIR}/etc/janus/janus.cfg
+${APPDIR}/bin/janus: janus-gateway/Makefile
 	cd janus-gateway && make && make install
 
 janus-gateway/Makefile: janus-gateway/configure
