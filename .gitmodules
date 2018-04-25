@@ -1,0 +1,12 @@
+[submodule "libsrtp"]
+	path = libsrtp
+	url = https://github.com/cisco/libsrtp
+[submodule "libwebsockets"]
+	path = libwebsockets
+	url = git://git.libwebsockets.org/libwebsockets
+[submodule "janus-gateway"]
+	path = janus-gateway
+	url = https://github.com/meetecho/janus-gateway
+[submodule "usrsctp"]
+	path = usrsctp
+	url = https://github.com/sctplab/usrsctp
