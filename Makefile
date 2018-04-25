@@ -1,7 +1,7 @@
-APPDIR=/app
+APPDIR?=/app
 export PKG_CONFIG_PATH=${APPDIR}/lib/pkgconfig
 
-default: ${APPDIR} libsrtp2 libwebsockets usrsctp janus
+default: ${APPDIR} libsrtp libwebsockets usrsctp janus
 
 deps:
 	apt install libmicrohttpd-dev libjansson-dev libnice-dev \
@@ -9,12 +9,17 @@ deps:
 		libopus-dev libogg-dev libcurl4-openssl-dev liblua5.3-dev \
 		pkg-config gengetopt libtool automake
 
-${APPDIR}:
-	sudo mkdir -p /app
-	sudo chown ${USER} /app
+clean:
+	make -C libwebsockets/build clean
+	make -C usrsctp clean
+	make -C libsrtp clean
 
-libsrtp2: ${APPDIR}/include/srtp2/srtp.h
-${APPDIR}/include/srtp2/srtp.h:
+${APPDIR}:
+	sudo mkdir -p ${APPDIR}
+	sudo chown ${USER} ${APPDIR}
+
+libsrtp: ${APPDIR}/include/srtp/srtp.h
+${APPDIR}/include/srtp/srtp.h:
 	cd libsrtp && ./configure --prefix=${APPDIR} --enable-openssl
 	make -C libsrtp 
 	make -C libsrtp install
