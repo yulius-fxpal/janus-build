@@ -1,7 +1,7 @@
 APPDIR?=/app
 export PKG_CONFIG_PATH=${APPDIR}/lib/pkgconfig
 
-default: ${APPDIR} libsrtp libwebsockets usrsctp janus
+default: ${APPDIR} submodules libsrtp libwebsockets usrsctp janus
 
 deps:
 	sudo apt install libmicrohttpd-dev libjansson-dev libnice-dev \
@@ -14,6 +14,11 @@ clean:
 	make -C usrsctp distclean
 	make -C libsrtp distclean
 	make -C janus-gateway distclean
+
+submodules: janus-gateway
+janus-gateway:
+	git submodule init
+	git submodule update
 
 distclean:
 	rm -rf ${APPDIR}/*

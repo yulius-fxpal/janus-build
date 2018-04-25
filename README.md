@@ -1,10 +1,12 @@
 janus-gateway build
 ===================
 
-Be sure to clong recursively or
+Dependencies
+------------
+Install dependencies
+
 ```
-$ git submodule init
-$ git submodule update
+$ make deps
 ```
 
 Build
