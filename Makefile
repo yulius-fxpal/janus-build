@@ -32,7 +32,7 @@ janus-gateway:
 	git submodule update
 
 distclean:
-	rm -rf ${APPDIR}/* libsrtp libwebsockets usrsctp janus-gateway
+	rm -rf ${APPDIR}/* libsrtp libwebsockets usrsctp janus-gateway boringssl janus.tgz
 
 ${APPDIR}:
 	sudo mkdir -p ${APPDIR}
@@ -78,6 +78,16 @@ janus-gateway/Makefile: janus-gateway/configure
 		--enable-data-channels \
 		--enable-libsrtp2 \
 		--enable-dtls-settimeout \
+		--disable-plugin-audiobridge \
+		--disable-plugin-echotest \
+		--disable-plugin-recordplay \
+		--disable-plugin-sip \
+		--disable-plugin-sipre \
+		--disable-plugin-nosip \
+		--disable-plugin-streaming \
+		--disable-plugin-textroom \
+		--disable-plugin-videocall \
+		--disable-plugin-voicemail \
 		--enable-boringssl=${APPDIR}/include \
 		CFLAGS="${CFLAGS}" \
 		LDFLAGS="${LDFLAGS}"
