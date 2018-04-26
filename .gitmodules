@@ -10,3 +10,6 @@
 [submodule "usrsctp"]
 	path = usrsctp
 	url = https://github.com/sctplab/usrsctp
+[submodule "boringssl"]
+	path = boringssl
+	url = https://boringssl.googlesource.com/boringssl
